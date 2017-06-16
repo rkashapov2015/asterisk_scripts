@@ -4,7 +4,7 @@ set_time_limit(0);
 include 'autoload.php';
 //require_once('/var/lib/phpagi/phpagi.php');
 //require_once('common/Helper.php');
-use Agi;
+use AGI;
 use \common\Helper;
 $url = 'https://api.okdoctor.ru/v1/asterisk/before-call';
 //$url = 'https://api.okdoctorff.ru/v1/asterisk/before-callddd';
