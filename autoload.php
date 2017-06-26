@@ -2,11 +2,18 @@
 spl_autoload_register(function ($class_name) {
     
     $filename = str_replace('\\', DIRECTORY_SEPARATOR, $class_name) . '.php';
-    $path_lib = 'common/';
-    $file = $path_lib . $filename;
-    if (file_exists($file) === false) {
-        throw new Exception('Undefined class', 500);
+    $paths_lib = array(
+        '',
+        'common/'
+    );
+    foreach ($paths_lib as $path) {
+        $file = $path . $filename;
+        
+        if (file_exists($file)) {
+            include $file;
+            return true;
+        }
     }
-    include $file;
+    throw new Exception('Undefined class', 500);
     
 });
